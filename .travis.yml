@@ -6,6 +6,7 @@ cache:
   ccache: true
   directories:
    - src/js/node_modules/
+   - website/node_modules/
    - $DEPOT_TOOLS_PATH
    - $BUILD_PATH
 env:
@@ -19,6 +20,7 @@ before_install: |
   fi
 install:
  - export PATH=$PATH:$DEPOT_TOOLS_PATH
+ - (cd website; yarn)
  - cd src
  # Sync dependencies.
  # TODO(ry) These sync steps are very terrible and only here temporarily.
@@ -50,3 +52,4 @@ script:
  - $BUILD_PATH/mock_runtime_test
  - $BUILD_PATH/mock_main foo bar
  - $BUILD_PATH/deno meow
+ - (cd website; ./node_modules/.bin/ts-node test.ts)
