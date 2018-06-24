@@ -48,6 +48,7 @@ install:
  # Travis hangs without -j2 argument to ninja.
  - ninja -j2 -C $BUILD_PATH mock_runtime_test mock_main
  - ninja -j2 -C $BUILD_PATH deno
+ - cd ..
 script:
  - $BUILD_PATH/mock_runtime_test
  - $BUILD_PATH/mock_main foo bar
