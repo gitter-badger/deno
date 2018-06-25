@@ -6,4 +6,5 @@ tools/protoc_wrapper/
 third_party/protobuf/
 third_party/zlib/
 third_party/rust_crates/libc/
+third_party/flatbuffers
 .gclient_entries
